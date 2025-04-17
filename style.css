@@ -1,0 +1,274 @@
+/* Основные стили */
+:root {
+    --primary: #FF7A00;
+    --primary-dark: #E56A00;
+    --dark: #1E1E1E;
+    --light: #F8F9FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 20px rgba(255, 122, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--dark);
+    color: var(--dark);
+}
+
+/* Шапка */
+.header {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Главный экран */
+.hero {
+    padding: 150px 0 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Анимация плавания */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Анимация пульсации */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 122, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 122, 0, 0); }
+}
+
+/* Блок с фичами */
+.features {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card img {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #666;
+}
+
+/* Подвал */
+.footer {
+    padding: 40px 0;
+    background: var(--dark);
+    color: white;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero .container {
+        flex-direction: column;text-align: center;
+    }
+
+    .hero-content {
+        margin-bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
