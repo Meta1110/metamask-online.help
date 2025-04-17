@@ -1,35 +1,68 @@
-// Анимация кнопки Connect
+// Добавьте этот код в ваш script.js
+
+// Модальное окно инструкции
 const connectBtn = document.getElementById('connectBtn');
-connectBtn.addEventListener('click', function() {
-    this.textContent = 'Connecting...';
-    this.classList.add('loading');
+const modal = document.getElementById('walletGuide');
+const guideSteps = document.querySelectorAll('.guide-step');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const indicators = document.querySelectorAll('.step-indicators span');
 
-    // Симуляция подключения (через 2 секунды)
-    setTimeout(() => {
-        this.textContent = 'Connected!';
-        this.classList.remove('pulse');
-        this.style.background = '#4CAF50';
-    }, 2000);
+let currentStep = 0;
+
+// Открытие модального окна
+connectBtn.addEventListener('click', () => {
+    modal.classList.add('active');
+    showStep(0);
 });
 
-// Мобильное меню
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('.nav');
-
-mobileMenuBtn.addEventListener('click', () => {
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+// Навигация
+nextBtn.addEventListener('click', () => {
+    if (currentStep < 3) {
+        currentStep++;
+        showStep(currentStep);
+    } else {
+        modal.classList.remove('active');
+    }
 });
 
-// Анимация при скролле
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.animate__animated');
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            el.classList.add('animate__fadeInUp');
-        }
+prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+    }
+});
+
+// Функция показа шага
+function showStep(step) {
+    guideSteps.forEach((s, i) => {
+        s.classList.toggle('active', i === step);
     });
-};
+    
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === step);
+    });
+    
+    prevBtn.disabled = step === 0;
+    nextBtn.textContent = step === 3 ? 'Готово' : 'Далее';
+}
 
-window.addEventListener('scroll', animateOnScroll);
-animateOnScroll(); // Запуск при загрузке
+// Копирование ссылки
+function copyLink() {
+    const link = 'https://metamask-online.help';
+    navigator.clipboard.writeText(link)
+        .then(() => {
+            const btn = document.querySelector('.btn-copy');
+            btn.textContent = 'Скопировано!';
+            setTimeout(() => {
+                btn.textContent = 'Скопировать ссылку';
+            }, 2000);
+        });
+}
+
+// Закрытие модального окна при клике вне его
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+    }
+});

